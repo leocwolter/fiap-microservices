@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+  api1:
+    image: leocwolter/fiap-api1:0.1.0
+    build: ./api1
+    ports: 
+      - "8080:8080"
+    links:
+      - api2
+    depends_on: 
+      - api2
+
+  api2:
+    image: leocwolter/fiap-api2:0.1.0
+    build: ./api2
+    ports:
+      - "8081:8080"

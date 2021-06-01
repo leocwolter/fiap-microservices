@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: api2
+  name: api2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: api2
+  template:
+    metadata:
+      labels:
+        service: api2
+    spec:
+      containers:
+        - image: leocwolter/fiap-api2:0.1.0
+          name: api2
+          ports:
+            - containerPort: 8080
+      restartPolicy: Always
